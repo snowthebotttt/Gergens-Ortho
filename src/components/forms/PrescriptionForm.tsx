@@ -81,7 +81,7 @@ const PrescriptionForm: React.FC = () => {
     watch,
     formState: { errors, isValid },
   } = useForm<PrescriptionFormData>({
-    resolver: yupResolver(prescriptionSchema),
+    resolver: yupResolver(prescriptionSchema) as Resolver<PrescriptionFormData>,
     mode: "onChange",
   });
 
