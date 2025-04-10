@@ -50,7 +50,23 @@ const prescriptionSchema = yup.object({
     .optional(),
 });
 
-type PrescriptionFormData = yup.InferType<typeof prescriptionSchema>;
+type PrescriptionFormData = {
+  doctorName: string;
+  practice: string;
+  email: string;
+  phone: string;
+  patientIdentifier: string;
+  applianceType: string;
+  applianceDetails: {
+    sleepApplianceType?: string;
+    orthoApplianceType?: string;
+    crownType?: string;
+    alignerType?: string;
+  };
+  instructions?: string;
+  rushOrder?: boolean;
+  deliveryDate?: Date | null;
+};
 
 const PrescriptionForm: React.FC = () => {
   const [step, setStep] = useState(1);
