@@ -41,12 +41,13 @@ const prescriptionSchema = yup.object({
       otherwise: (schema) => schema.optional(),
     }),
   }),
-  instructions: yup.string(),
-  rushOrder: yup.boolean(),
+  instructions: yup.string().optional(),
+  rushOrder: yup.boolean().optional(),
   deliveryDate: yup
     .date()
     .nullable()
-    .min(new Date(), "Delivery date cannot be in the past"),
+    .min(new Date(), "Delivery date cannot be in the past")
+    .optional(),
 });
 
 type PrescriptionFormData = yup.InferType<typeof prescriptionSchema>;
