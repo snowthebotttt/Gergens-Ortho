@@ -679,7 +679,9 @@ const PrescriptionForm: React.FC = () => {
                   {watch("deliveryDate") && (
                     <p className="text-sm text-gray-900 mt-2">
                       <span className="font-medium">Requested Delivery:</span>{" "}
-                      {new Date(watch("deliveryDate")).toLocaleDateString()}
+                      {watch("deliveryDate")
+                        ? new Date(watch("deliveryDate")!).toLocaleDateString()
+                        : "N/A"}
                     </p>
                   )}
                 </div>
